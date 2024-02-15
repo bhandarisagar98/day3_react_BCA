@@ -16,8 +16,6 @@ const SingleBlog = () => {
       if (res.status === 200) {
         setLoading(false);
         setData(res.data);
-
-        console.log(res);
       }
     } catch (error) {
       setLoading(false);
@@ -34,8 +32,8 @@ const SingleBlog = () => {
         <div>
           <img style={{ width: "200px", height: "200px" }} src={data.avatar} />
           <h3>{data.name}</h3>
-          <p>{data.desc.slice(0, 70)}...</p>
-          <p>{data.created_at}</p>
+          <p>{data.desc}</p>
+          <p>{data.createdAt}</p>
         </div>
       )}
     </>
