@@ -2,6 +2,8 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./components/Card";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SingleBlog from "./pages/SingleBlog";
 
 function App() {
   const [data, setData] = useState([]);
@@ -24,21 +26,32 @@ function App() {
     fetchBlog();
   }, []);
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "30px",
-        padding: "30px",
-      }}
-    >
-      {loading
-        ? "loading..."
-        : data.map((row) => {
-            return <Card key={row.id} row={row} />;
-          })}
-      {}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: "30px",
+                padding: "30px",
+              }}
+            >
+              {loading
+                ? "loading..."
+                : data.map((row) => {
+                    return <Card key={row.id} row={row} />;
+                  })}
+              {}
+            </div>
+          }
+        />
+
+        <Route path="/:id" element={<SingleBlog />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
