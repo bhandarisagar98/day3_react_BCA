@@ -5,14 +5,12 @@ const Create = () => {
   const createBlog = async (e) => {
     e.preventDefault();
     let data = new FormData(e.currentTarget);
-
     let formData = {
       name: data.get("name"),
       avatar: data.get("avatar"),
       desc: data.get("desc"),
       createdAt: new Date(),
     };
-
     let res = await axios.post(
       "https://65cd9528c715428e8b3e9af4.mockapi.io/blog",
       formData
