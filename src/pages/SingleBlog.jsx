@@ -15,6 +15,7 @@ const SingleBlog = () => {
       );
       if (res.status === 200) {
         setLoading(false);
+        console.log(res);
         setData(res.data);
       }
     } catch (error) {
@@ -24,6 +25,7 @@ const SingleBlog = () => {
   useEffect(() => {
     fetchBlog();
   }, []);
+
   return (
     <>
       {loading ? (
