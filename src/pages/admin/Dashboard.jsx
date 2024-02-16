@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -19,12 +19,19 @@ const Dashboard = () => {
           style={{
             width: "200px",
             height: "100vh",
-            background: "red",
+            background: "#dddddd",
             padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            color: "white",
           }}
         >
-          <p>Home</p>
-          <p>Create</p>
+          <Link style={{ textDecoration: "none" }} to="/dashboard">
+            Home
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/dashboard/create">
+            Create
+          </Link>
         </div>
         <div
           style={{

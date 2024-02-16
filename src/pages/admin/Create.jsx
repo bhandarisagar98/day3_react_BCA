@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 const Create = () => {
@@ -10,7 +11,14 @@ const Create = () => {
       avatar: data.get("avatar"),
       desc: data.get("desc"),
     };
-    console.log(formData);
+
+    let res = await axios.post(
+      "https://65cd9528c715428e8b3e9af4.mockapi.io/blog",
+      formData
+    );
+    if (res.status === 201) {
+      alert("blog create successfully");
+    }
   };
   return (
     <div style={{ color: "red" }}>
