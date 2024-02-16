@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SingleBlog from "./pages/SingleBlog";
 import Dashboard from "./pages/admin/Dashboard";
 import Home from "./pages/admin/Home";
+import Create from "./pages/admin/Create";
 
 function App() {
   const [data, setData] = useState([]);
@@ -53,8 +54,9 @@ function App() {
 
         <Route path="/:id" element={<SingleBlog />} />
 
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="/dashboard/" element={<Dashboard />}>
           <Route path="" element={<Home />} />
+          <Route path="create" element={<Create />} />
         </Route>
       </Routes>
     </BrowserRouter>
