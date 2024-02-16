@@ -10,6 +10,7 @@ const Create = () => {
       name: data.get("name"),
       avatar: data.get("avatar"),
       desc: data.get("desc"),
+      createdAt: new Date(),
     };
 
     let res = await axios.post(
